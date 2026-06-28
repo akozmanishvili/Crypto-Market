@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const CoinTable = ({ coins }) => {
   return (
     <div>
@@ -29,6 +30,7 @@ const CoinTable = ({ coins }) => {
               >
                 {coin.price_change_percentage_24h}
               </span>
+              <Link to={"coin/${coins.id}"}>Details</Link>
             </li>
           );
         })}
