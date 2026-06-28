@@ -1,10 +1,26 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import App from "./App.jsx";
+import Home from "./pages/Home.jsx";
+import CoinDetails from "./pages/CoinDetails.jsx";
+import Error from "./pages/Error.jsx";
 
-createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App></App>,
+    errorElement: <Error></Error>,
+    children: [
+      { index: true, element: <Home></Home> },
+      { path: "coin/:id", element: <CoinDetails></CoinDetails> },
+    ],
+  },
+]);
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
-)
+);
