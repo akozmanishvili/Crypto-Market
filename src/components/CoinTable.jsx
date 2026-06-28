@@ -4,6 +4,9 @@ const CoinTable = ({ coins }) => {
     <div>
       <ul>
         {coins.map((coin) => {
+          const price = coin.quotes?.USD?.price?.toFixed(2) || "0.00";
+          const change = coin.quotes?.USD?.percent_change_24h || 0;
+          const isNegative = change < 0;
           return (
             <li
               key={coin.id}
@@ -14,18 +17,13 @@ const CoinTable = ({ coins }) => {
                 margin: "10px 0",
               }}
             >
-              <img
-                src={coin.image}
-                alt={coin.name}
-                style={{ width: "30px", height: "30px" }}
-              />
               <span>
-                {coin.name} ({coin.symbol.toUpperCase()})
+                {coin.name} {coin.symbol.toUpperCase()}
               </span>
-              <span>{coin.current_price}</span>
+              <span>${price}</span>
               <span
                 style={{
-                  color: coin.price_change_percentage_24h < 0 ? "red" : "green",
+                  color: isNegative ? "red" : "green",
                 }}
               >
                 {coin.price_change_percentage_24h}

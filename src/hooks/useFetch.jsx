@@ -13,7 +13,7 @@ const useFetch = (url) => {
     async function fetching() {
       try {
         const resp = await fetch(url, { signal: controller.signal });
-        const js = resp.json();
+        const js = await resp.json();
         setData(js);
       } catch (err) {
         if (err.message === "AbortError") return;
