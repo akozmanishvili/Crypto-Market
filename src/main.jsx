@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     errorElement: <Error></Error>,
     children: [
       { index: true, element: <Home></Home> },
-      { path: "coin/:id", element: <CoinDetails></CoinDetails> },
+      { path: "coindetails", element: <CoinDetails></CoinDetails> },
     ],
   },
 ]);
