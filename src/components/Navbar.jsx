@@ -4,7 +4,6 @@ const Navbar = () => {
     <div>
       <nav>
         <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/coindetails"}>Coin Details</NavLink>
       </nav>
     </div>
   );

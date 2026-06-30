@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
 const CoinTable = ({ coins }) => {
   return (
-    <div>
+    <div className="table-container">
       <ul>
         {coins.map((coin) => {
-          const price = coin.quotes?.USD?.price?.toFixed(2) || "0.00";
-          const change = coin.quotes?.USD?.percent_change_24h || 0;
-          const isNegative = change < 0;
           return (
             <li
               key={coin.id}
@@ -17,18 +14,27 @@ const CoinTable = ({ coins }) => {
                 margin: "10px 0",
               }}
             >
-              <span>
-                {coin.name} {coin.symbol.toUpperCase()}
-              </span>
-              <span>${price}</span>
+              <div className="coin-info">
+                <img
+                  src={coin.image}
+                  alt={coin.name}
+                  style={{ width: "30px", height: "30px" }}
+                />
+                <span className="coin-symbol">
+                  {coin.name} ({coin.symbol.toUpperCase()}) $
+                  {coin.current_price}
+                </span>
+              </div>
               <span
                 style={{
-                  color: isNegative ? "red" : "green",
+                  color: coin.price_change_percentage_24h < 0 ? "red" : "green",
                 }}
               >
-                {coin.price_change_percentage_24h}
+                {coin.price_change_percentage_24h}%
               </span>
-              <Link to={"coin/${coins.id}"}>Details</Link>
+              <Link to={`/coin/${coin.id}`} className="btn-details">
+                Details
+              </Link>
             </li>
           );
         })}

@@ -1,0 +1,204 @@
+/* Modern Reset & CSS Variables */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --border: #e2e8f0;
+  --success: #10b981;
+  --error: #ef4444;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base Layout Wrapper */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Navigation Bar Layout */
+nav {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+}
+
+/* Typography Elements */
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0;
+}
+
+/* Custom Styled Components */
+.search-container {
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
+
+/* Gorgeous Data Table Interface */
+.table-container {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f5f9;
+  padding: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tr {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+tr:hover {
+  background-color: #f8fafc;
+}
+
+td {
+  padding: 1rem;
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+/* Status Badges & Utilities */
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.coin-symbol {
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.price-positive {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.price-negative {
+  color: var(--error);
+  font-weight: 600;
+}
+
+/* Button & Back Actions */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.btn-back:hover {
+  transform: translateX(-4px);
+}
+
+.btn-details {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #f1f5f9;
+  color: var(--text-main);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-details:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Unique Details Page Container */
+.details-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+}

@@ -7,7 +7,7 @@ const Home = () => {
   const [input, setInput] = useState(``);
 
   const { data, isLoading, error } = useFetch(
-    "https://api.coinpaprika.com/v1/tickers?limit=50",
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false",
   );
 
   console.log(data);

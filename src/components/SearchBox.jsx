@@ -2,8 +2,9 @@ import { useState } from "react";
 
 const SearchBox = ({ input, setInput }) => {
   return (
-    <div>
+    <div className="search-container">
       <input
+        className="search-input"
         type="text"
         placeholder="Coins..."
         onChange={(e) => setInput(e.target.value)}
