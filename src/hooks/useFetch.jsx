@@ -10,17 +10,26 @@ const useFetch = (url) => {
     setError(false);
 
     const controller = new AbortController();
+
     async function fetching() {
       try {
         const resp = await fetch(url, { signal: controller.signal });
+
+        if (!resp.ok) throw new Error("Failed to fetch data");
+
         const js = await resp.json();
         setData(js);
       } catch (err) {
-        if (err.message === "AbortError") return;
-        console.error(err.message);
+        if (err.name === "AbortError" || err.message?.includes("aborted")) {
+          return;
+        }
+
+        console.error("Fetch error details:", err.message);
         setError(err.message);
       } finally {
-        setIsLoading(false);
+        if (!controller.signal.aborted) {
+          setIsLoading(false);
+        }
       }
     }
 
